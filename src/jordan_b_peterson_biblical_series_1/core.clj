@@ -30,3 +30,7 @@
     #(contains? (experienced-reality1 (first %)) (second %))
     experience-quanta)))
 
+
+
+(def are-you-actuall-starving? (in-sync? experienced-reality1
+                                         (feelings-words-actions :im-starving)))
