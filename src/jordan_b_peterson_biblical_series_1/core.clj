@@ -3,7 +3,7 @@
 
 (def feelings-words-actions
   {:im-starving
-   {:feeling :gumbling-of-the-belly
+   {:feeling :grumbling-of-the-belly
     :words "I'm starving"
     :action nil}
   :i-love-you
@@ -18,8 +18,7 @@
 (def experienced-reality1
   {:action #{:eat}
    :words #{"I'm starving"}
-   :feeling #{}
-   :unknown #{}})
+   :feeling #{}})
 
 (defn in-sync? [experienced-reality1 experience-quanta]
   "Is all dimensions of experience in sync with the named experience-quanta
@@ -34,3 +33,15 @@
 
 (def are-you-actuall-starving? (in-sync? experienced-reality1
                                          (feelings-words-actions :im-starving)))
+
+;; The way we behave contains more information than we know.
+(defn psycho-analyze [experienced-reality]
+  (if (and
+       (contains? (experienced-reality :action) :eat)
+       (contains? (experienced-reality :words) "I'm starving")
+       (not (contains? (experienced-reality :feeling) :grumbling-of-the-belly))
+       )
+    "You are eating out of depression. You aren't actually starving, but you are filling a void with food."
+    "You seem normal"))
+
+(def analysis (psycho-analize experienced-reality1))
